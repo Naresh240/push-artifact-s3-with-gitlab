@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+build:
+  stage: build
+  tags:
+   - docker  
+  only:    
+    - web  
+  image: openjdk:12-alpine
+  script:
+  - mvn clean install
+  artifacts:
+    paths:
+      - ./target/*.jar
+deploy:
+  tags:
+  - docker
+  image: python:latest
+  stage: deploy
+  only:    
+    - web
+  script:
+  - pip install awscli  
+  - aws s3 sync ./target s3://aws-devops-batch123/
