@@ -10,10 +10,10 @@
 # Install GitLab Runner
 1. Add the official GitLab repository:
    
-   curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh" | sudo bash
+    curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh" | sudo bash
 2. Install the latest version of GitLab Runner
 
-    yum install gitlab-runner
+    yum install gitlab-runner -y
   
   Go to the project’s Settings > CI/CD and expand the Runners section and get URL and token
   go to ```Settings > CI/CD and expand the Runners section```
